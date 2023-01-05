@@ -1,23 +1,28 @@
+const anchorHash = window.location.hash;
 const navbar = document.querySelector("#sticky-nav-bar");
-const activeNavLink = navbar.querySelector(".uk-navbar-nav li.uk-active a");
-const navLinks = navbar.querySelectorAll(".uk-navbar-nav li:not(.uk-active) a");
-// const logo = navbar.querySelector("img");
+const navLinks = navbar.querySelectorAll(".uk-navbar-nav li a");
+let activeNavLink;
+
+if (anchorHash) {
+    activeNavLink = navbar.querySelector("[href='" + anchorHash + "']")
+    activeNavLink.classList.add('active')
+}
+
+navLinks.forEach((navLink) => {
+    navLink.addEventListener('click', (e) => {
+        activeNavLink = navbar.querySelector(".uk-navbar-nav li a.nav-link.active");
+        if (activeNavLink) {
+            activeNavLink.classList.remove('active')
+        }
+        
+        e.target.classList.add('active')
+    })
+});
 
 window.onscroll = () => {
-  if (window.scrollY > 700) {
-    navbar.classList.add("navbar-bg-white");
-    activeNavLink.style.color = "black";
-    // logo.src = "assets/logo_yellow.svg";
-    navLinks.forEach((navLink) => {
-      navLink.classList.add("uk-text-muted");
-    });
+  if (window.scrollY > 100) {
+    navbar.classList.add("navbar-bg-yellow");
   } else {
-    navbar.classList.remove("navbar-bg-white");
-    activeNavLink.style.color = "white";
-    // logo.src = "assets/logo_black.svg";
-    navLinks.forEach((navLink) => {
-      navLink.classList.remove("uk-text-muted");
-      navLink.style.color = "black";
-    });
+    navbar.classList.remove("navbar-bg-yellow");
   }
 };

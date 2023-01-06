@@ -58,7 +58,6 @@ body {
   box-shadow: 0px 11px 22px rgba(0, 0, 0, 0.22);
 }
 
-/* need to override uikit navbar link color */
 .nav-link {
   color: var(--black) !important;
   font-size: 18px;
@@ -67,11 +66,11 @@ body {
 }
 
 .nav-link.active {
-    color: var(--white) !important;
+  color: var(--white) !important;
 }
 
 .nav-link:hover {
-    color: var(--white) !important;
+  color: var(--white) !important;
 }
 
 .cta-button {
@@ -92,7 +91,7 @@ body {
   background-color: var(--yellow);
   margin-top: -80px;
   margin-bottom: -120px;
-  padding-bottom: 120px;
+  padding: 120px 0;
 }
 
 .hero-heading-1 {
@@ -460,6 +459,11 @@ footer {
 
 .footer-link ul {
   color: var(--white);
+  cursor: pointer;
+}
+
+.footer-link ul li:hover {
+  text-decoration: underline;
 }
 
 .footer-contact h1 {
@@ -480,6 +484,9 @@ footer {
   background-color: transparent;
   border: 0;
   margin-left: 27px;
+}
+
+.contact-email-input:focus {
   outline: none;
 }
 
@@ -491,4 +498,9 @@ footer {
   border-radius: 70px;
   border-width: 0;
   margin-right: 11px;
+}
+
+.contact-email-input-submit:hover {
+  background-color: #313131;
+  cursor: pointer;
 }
